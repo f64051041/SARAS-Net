@@ -21,7 +21,7 @@ cd SARAS-Net
 ## Quick start
 
 ## Train
-You can find <cfgs/config.py> to set the training parameter.
+You can find `cfgs/config.py` to set the training parameter.
 ```ruby
 python train.py
 ```
