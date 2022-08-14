@@ -22,9 +22,13 @@ cd SARAS-Net
 ```
 
 ## Quick start
-Download LEVIR-CD weight : https://drive.google.com/file/d/1u27iNaP62tI8jlnarPoO1GsdQzShGJM7/view?usp=sharing
-
-
+Download LEVIR-CD weight : https://drive.google.com/file/d/1u27iNaP62tI8jlnarPoO1GsdQzShGJM7/view?usp=sharing  
+After downloaded the model weight, you can put it in `SARAS-Net/`.  
+Then, run a demo to get started as follows:  
+```ruby
+python demo.py
+```
+After that, you can find the prediction results in `SARAS-Net/samples/`
 
 ## Train
 You can find `cfgs/config.py` to set the training parameter.
@@ -43,7 +47,7 @@ train_dataset
   |- train.txt
   |- val.txt
 ```
-The format of `train.txt` and `val.txt` please refer to `train_dataset/train.txt` and `train_dataset/val.txt`   
+The format of `train.txt` and `val.txt` please refer to `SARAS-Net/train_dataset/train.txt` and `SARAS-Net/train_dataset/val.txt`   
 ### Data Download
 LEVIR-CD: https://justchenhao.github.io/LEVIR/  
 
