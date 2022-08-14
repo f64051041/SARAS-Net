@@ -30,6 +30,7 @@ python train.py
 ```
 
 ## Data structure
+### Data Path
 ```ruby
 train_dataset  
   |- train_dataset 
@@ -39,6 +40,7 @@ train_dataset
   |- train.txt
   |- val.txt
 ```
+The format of `train.txt` and `val.txt` please refer to `train_dataset/train.txt` and `train_dataset/val.txt`   
 ### Data Download
 LEVIR-CD: https://justchenhao.github.io/LEVIR/  
 
