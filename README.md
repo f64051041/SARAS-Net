@@ -22,6 +22,9 @@ cd SARAS-Net
 ```
 
 ## Quick start
+Download LEVIR-CD weight : https://drive.google.com/file/d/1u27iNaP62tI8jlnarPoO1GsdQzShGJM7/view?usp=sharing
+
+
 
 ## Train
 You can find `cfgs/config.py` to set the training parameter.
