@@ -1,14 +1,4 @@
 # SARAS-Net
-
-# Benchmark Repository Template
-
-> Template for benchmark repositories used with the [benchmark tool](https://git.luehne.de/patrick/benchmark-repository-rs)
-
-## Structure
-
-- [config branch](/patrick/benchmark-template/src/config): contains the tested configurations and instance sets
-- [results branch](/patrick/benchmark-template/src/results): contains the result files
-
 **Scale And Relation Aware Siamese Network for Change Detection**   
 **Target:** Change detection aims to find the difference between two images at different times and output a change map.  
 
