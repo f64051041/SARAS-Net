@@ -31,7 +31,7 @@ python demo.py
 After that, you can find the prediction results in `SARAS-Net/samples/`
 
 ## Train
-You can find `cfgs/config.py` to set the training parameter.
+You can find `SARAS-Net/cfgs/config.py` to set the training parameter.
 ```ruby
 python train.py
 ```
