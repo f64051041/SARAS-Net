@@ -29,7 +29,12 @@ Then, run a demo to get started as follows:
 python demo.py
 ```
 After that, you can find the prediction results in `SARAS-Net/samples/`
-![image](https://github.com/f64051041/SARAS-Net/blob/main/image/demo_example.jpg)
+
+<div align = center>
+<img src="demo_example.jpg" alt="Cover" width="50%"/> >
+</div>
+
+
 
 ## Train
 You can find `SARAS-Net/cfgs/config.py` to set the training parameter.
