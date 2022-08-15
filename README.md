@@ -31,7 +31,7 @@ python demo.py
 After that, you can find the prediction results in `SARAS-Net/samples/`
 
 <div align = center>
-<img src="image/demo_example.jpg" alt="Cover" width="50%"/> >
+<img src="image/demo_example.jpg" alt="Cover" width="50%"/> 
 </div>
 
 
