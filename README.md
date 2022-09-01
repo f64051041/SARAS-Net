@@ -22,7 +22,7 @@ cd SARAS-Net
 ```
 
 ## Quick start
-Download LEVIR-CD weight : https://drive.google.com/file/d/1u27iNaP62tI8jlnarPoO1GsdQzShGJM7/view?usp=sharing  
+Download LEVIR-CD weight : https://drive.google.com/file/d/1FshrN8Xm-JxycRpDWEsOsgBKeK-IuaNu/view?usp=sharing  
 After downloaded the model weight, you can put it in `SARAS-Net/`.  
 Then, run a demo to get started as follows:  
 ```ruby
