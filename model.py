@@ -423,7 +423,7 @@ def _resnet(arch, block, layers, pretrained, progress, **kwargs):
     if pretrained:
         state_dict = load_state_dict_from_url(model_urls[arch],
                                               progress=progress)
-
+        model.load_state_dict(state_dict, strict=False)
     return model    
     
 def resnet18(pretrained=False, progress=True, **kwargs):
@@ -447,25 +447,25 @@ class Change_detection(nn.Module):
         self.PPN = PSPModule(f_channels[-1])
 
 
-        # Relation-aware
-        self.Cross_transformer_backbone_a3 =  Cross_transformer_backbone(in_channels = f_channels[3])
-        self.Cross_transformer_backbone_a2 =  Cross_transformer_backbone(in_channels = f_channels[2])
-        self.Cross_transformer_backbone_a1 =  Cross_transformer_backbone(in_channels = f_channels[1])
-        self.Cross_transformer_backbone_a0 =  Cross_transformer_backbone(in_channels = f_channels[0])
-        self.Cross_transformer_backbone_a33 =  Cross_transformer_backbone(in_channels = f_channels[3])
-        self.Cross_transformer_backbone_a22 =  Cross_transformer_backbone(in_channels = f_channels[2])
-        self.Cross_transformer_backbone_a11 =  Cross_transformer_backbone(in_channels = f_channels[1])
-        self.Cross_transformer_backbone_a00 =  Cross_transformer_backbone(in_channels = f_channels[0])
+#         # Relation-aware
+#         self.Cross_transformer_backbone_a3 =  Cross_transformer_backbone(in_channels = f_channels[3])
+#         self.Cross_transformer_backbone_a2 =  Cross_transformer_backbone(in_channels = f_channels[2])
+#         self.Cross_transformer_backbone_a1 =  Cross_transformer_backbone(in_channels = f_channels[1])
+#         self.Cross_transformer_backbone_a0 =  Cross_transformer_backbone(in_channels = f_channels[0])
+#         self.Cross_transformer_backbone_a33 =  Cross_transformer_backbone(in_channels = f_channels[3])
+#         self.Cross_transformer_backbone_a22 =  Cross_transformer_backbone(in_channels = f_channels[2])
+#         self.Cross_transformer_backbone_a11 =  Cross_transformer_backbone(in_channels = f_channels[1])
+#         self.Cross_transformer_backbone_a00 =  Cross_transformer_backbone(in_channels = f_channels[0])
      
         
-        self.Cross_transformer_backbone_b3 =  Cross_transformer_backbone(in_channels = f_channels[3])
-        self.Cross_transformer_backbone_b2 =  Cross_transformer_backbone(in_channels = f_channels[2])
-        self.Cross_transformer_backbone_b1 =  Cross_transformer_backbone(in_channels = f_channels[1])
-        self.Cross_transformer_backbone_b0 =  Cross_transformer_backbone(in_channels = f_channels[0])
-        self.Cross_transformer_backbone_b33 =  Cross_transformer_backbone(in_channels = f_channels[3])
-        self.Cross_transformer_backbone_b22 =  Cross_transformer_backbone(in_channels = f_channels[2])
-        self.Cross_transformer_backbone_b11 =  Cross_transformer_backbone(in_channels = f_channels[1])
-        self.Cross_transformer_backbone_b00 =  Cross_transformer_backbone(in_channels = f_channels[0])
+#         self.Cross_transformer_backbone_b3 =  Cross_transformer_backbone(in_channels = f_channels[3])
+#         self.Cross_transformer_backbone_b2 =  Cross_transformer_backbone(in_channels = f_channels[2])
+#         self.Cross_transformer_backbone_b1 =  Cross_transformer_backbone(in_channels = f_channels[1])
+#         self.Cross_transformer_backbone_b0 =  Cross_transformer_backbone(in_channels = f_channels[0])
+#         self.Cross_transformer_backbone_b33 =  Cross_transformer_backbone(in_channels = f_channels[3])
+#         self.Cross_transformer_backbone_b22 =  Cross_transformer_backbone(in_channels = f_channels[2])
+#         self.Cross_transformer_backbone_b11 =  Cross_transformer_backbone(in_channels = f_channels[1])
+#         self.Cross_transformer_backbone_b00 =  Cross_transformer_backbone(in_channels = f_channels[0])
 
 
         # Scale-aware
@@ -507,24 +507,24 @@ class Change_detection(nn.Module):
 
         # Relation-aware
         features, features11, features22= [], [],[]
-        for i in range(len(features1)):
-            if i == 0:
-                features11.append(self.Cross_transformer_backbone_a00(features1[i] , self.Cross_transformer_backbone_a0(features1[i], features2[i])))
-                features22.append(self.Cross_transformer_backbone_b00(features2[i], self.Cross_transformer_backbone_b0(features2[i], features1[i])))
-            elif i == 1:
-                features11.append(self.Cross_transformer_backbone_a11(features1[i] , self.Cross_transformer_backbone_a1(features1[i], features2[i])))
-                features22.append(self.Cross_transformer_backbone_b11(features2[i], self.Cross_transformer_backbone_b1(features2[i], features1[i])))
-            elif i == 2:    
-                features11.append(self.Cross_transformer_backbone_a22(features1[i] , self.Cross_transformer_backbone_a2(features1[i], features2[i])))
-                features22.append(self.Cross_transformer_backbone_b22(features2[i], self.Cross_transformer_backbone_b2(features2[i], features1[i])))
-            elif i == 3:    
-                features11.append(self.Cross_transformer_backbone_a33(features1[i] , self.Cross_transformer_backbone_a3(features1[i], features2[i])))
-                features22.append(self.Cross_transformer_backbone_b33(features2[i], self.Cross_transformer_backbone_b3(features2[i], features1[i])))
+#         for i in range(len(features1)):
+#             if i == 0:
+#                 features11.append(self.Cross_transformer_backbone_a00(features1[i] , self.Cross_transformer_backbone_a0(features1[i], features2[i])))
+#                 features22.append(self.Cross_transformer_backbone_b00(features2[i], self.Cross_transformer_backbone_b0(features2[i], features1[i])))
+#             elif i == 1:
+#                 features11.append(self.Cross_transformer_backbone_a11(features1[i] , self.Cross_transformer_backbone_a1(features1[i], features2[i])))
+#                 features22.append(self.Cross_transformer_backbone_b11(features2[i], self.Cross_transformer_backbone_b1(features2[i], features1[i])))
+#             elif i == 2:    
+#                 features11.append(self.Cross_transformer_backbone_a22(features1[i] , self.Cross_transformer_backbone_a2(features1[i], features2[i])))
+#                 features22.append(self.Cross_transformer_backbone_b22(features2[i], self.Cross_transformer_backbone_b2(features2[i], features1[i])))
+#             elif i == 3:    
+#                 features11.append(self.Cross_transformer_backbone_a33(features1[i] , self.Cross_transformer_backbone_a3(features1[i], features2[i])))
+#                 features22.append(self.Cross_transformer_backbone_b33(features2[i], self.Cross_transformer_backbone_b3(features2[i], features1[i])))
           
 
         # The distance between features from two input images.
         for i in range(len(features1)):
-            features.append(abs(features11[i] - features22[i]))
+            features.append(abs(features1[i] - features2[i]))
  
         features[-1] = self.PPN(features[-1])
 
