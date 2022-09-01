@@ -59,13 +59,10 @@ class Cross_transformer_backbone(nn.Module):
 class Cross_transformer(nn.Module):
     def __init__(self, in_channels = 48):
         super(Cross_transformer, self).__init__()
-        self.conv_concat = nn.Sequential(
-            nn.Conv2d(in_channels * 3, in_channels, kernel_size=3, padding=1, bias=False),
-            nn.BatchNorm2d(in_channels),
-            nn.ReLU(inplace=True)
-        )
-        self.to_key = nn.Linear(in_channels * 2, in_channels, bias=False)
-        self.to_value = nn.Linear(in_channels * 2, in_channels, bias=False)
+        self.fa = nn.Linear(in_channels , in_channels, bias=False)
+        self.fb = nn.Linear(in_channels, in_channels, bias=False)
+        self.fc = nn.Linear(in_channels , in_channels, bias=False)
+        self.fd = nn.Linear(in_channels, in_channels, bias=False)
         self.softmax = nn.Softmax(dim=-1)
         self.to_out = nn.Sequential(
             nn.Conv2d(in_channels, in_channels, kernel_size=3, padding=1),
@@ -73,35 +70,47 @@ class Cross_transformer(nn.Module):
             nn.ReLU(inplace=True)
         )
         self.gamma_cam_lay3 = nn.Parameter(torch.zeros(1))
-        self.cam_layer3 = nn.Sequential(
-            nn.Conv2d(in_channels, in_channels, kernel_size=3, padding=1),
+        self.fuse = nn.Sequential(
+            nn.Conv2d(in_channels * 4, in_channels, kernel_size=1, padding=0),
             nn.BatchNorm2d(in_channels),
-            nn.ReLU()
+            nn.ReLU(inplace=True)
         )
         
-    def forward(self, input_feature, features):
-        Query_features = input_feature
-        Query_features = self.cam_layer3(Query_features)       
-        Support_features = self.conv_concat(torch.cat((features[1], features[2], features[0]), dim = 1))
-        
-        m_batchsize, C, height, width = Query_features.size()
-        Query_features_query = Query_features.view(m_batchsize, C, -1)
-        
-        Query_features_key = Query_features.view(m_batchsize, C, -1) 
-        Support_features_key = Support_features.view(m_batchsize, C, -1)
-        fuse_key = self.to_key(torch.cat((Query_features_key, Support_features_key), dim = 1).permute(0, 2, 1))
-        
-        Query_features_value = Query_features.view(m_batchsize, C, -1) 
-        Support_features_value = Support_features.view(m_batchsize, C, -1)
-        fuse_value = self.to_value(torch.cat((Query_features_value, Support_features_value), dim = 1).permute(0, 2, 1)).permute(0, 2, 1)
-        energy = torch.bmm(Query_features_query, fuse_key)
+    
+    def attention_layer(self, q, k, v, m_batchsize, C, height, width):
+        k = k.permute(0, 2, 1)
+        energy = torch.bmm(q, k)
         energy_new = torch.max(energy, -1, keepdim=True)[0].expand_as(energy)-energy
         attention = self.softmax(energy_new)
-
-        out = torch.bmm(attention, fuse_value)
+        out = torch.bmm(attention, v)
         out = out.view(m_batchsize, C, height, width)
-        out = self.gamma_cam_lay3 * out + Query_features
+        
+        return out
+        
+        
+    def forward(self, input_feature, features):
+        fa = input_feature
+        fb = features[0]
+        fc = features[1]
+        fd = features[2]
+        
+        m_batchsize, C, height, width = fa.size()
+        fa = self.fa(fa.view(m_batchsize, C, -1).permute(0, 2, 1)).permute(0, 2, 1)
+        fb = self.fb(fb.view(m_batchsize, C, -1).permute(0, 2, 1)).permute(0, 2, 1)
+        fc = self.fc(fc.view(m_batchsize, C, -1).permute(0, 2, 1)).permute(0, 2, 1)
+        fd = self.fd(fd.view(m_batchsize, C, -1).permute(0, 2, 1)).permute(0, 2, 1)
+        
+        
+        qkv_1 = self.attention_layer(fa, fa, fa, m_batchsize, C, height, width)
+        qkv_2 = self.attention_layer(fa, fb, fb, m_batchsize, C, height, width)  
+        qkv_3 = self.attention_layer(fa, fc, fc, m_batchsize, C, height, width)
+        qkv_4 = self.attention_layer(fa, fd, fd, m_batchsize, C, height, width)
+        
+        atten = self.fuse(torch.cat((qkv_1, qkv_2, qkv_3, qkv_4), dim = 1))
+              
 
+
+        out = self.gamma_cam_lay3 * atten + input_feature
 
         out = self.to_out(out)
         
