@@ -370,6 +370,12 @@ class Dataset(Dataset):
         elif cfg.dataset_name == 'WHU_CD':
             img1 = TF.normalize(img1, mean=[0.48533902,0.44470758, 0.38696629],std=[0.17376693,0.16997644,0.1731293 ])
             img2 = TF.normalize(img2, mean=[0.48430226,0.48375396,0.46155609],std=[0.21371132,0.20393126,0.22009166]) 
+        elif cfg.dataset_name == 'CCD_CD': 
+            img1 = TF.normalize(img1, mean=[0.35406487, 0.39149388, 0.34328843],std=[0.21638811, 0.23465545, 0.20915913])
+            img2 = TF.normalize(img2, mean=[0.47369619, 0.49932158, 0.46938096],std=[0.24345056, 0.26037342, 0.25711795]) 
+        elif cfg.dataset_name == 'OSCD_CD': 
+            img1 = TF.normalize(img1, mean=[0.30269907, 0.29237894, 0.31021307],std=[0.20468995, 0.14207161, 0.12051828])
+            img2 = TF.normalize(img2, mean=[0.2926714, 0.28220245, 0.30294364],std=[0.19940712, 0.14064144, 0.12057147]) 
         else:
             print("Your dataset_name in cfgs/config.py has error!")
 
