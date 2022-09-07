@@ -63,3 +63,13 @@ WHU-CD: https://study.rsgis.whu.edu.cn/pages/download/building_dataset.html
 DSIFN-CD: https://github.com/GeoZcx/A-deeply-supervised-image-fusion-network-for-change-detection-in-remote-sensing-images/tree/master/dataset
 
 Quick train on LEVIR-CD : https://drive.google.com/file/d/1WPjtPoyxVaKfQ87j1Ggxl4mjQym2iaYC/view?usp=sharing
+
+## Result
+
+| Dataset  | Pre. | Rec. | F1-score | IoU | OA | 
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| LEVIR-CD  | 91.97% | 91.85%  | 91.91% | 84.95% | 99.10% |
+| CCD-CD  | 97.76% | 97.23%  | 97.49% | 95.11% | 99.35% |
+| WHU-CD  | 88.41% | 85.81%  | 87.09% | 77.14% | 98.89% |
+| DSIFN-CD | 71.81% | 69.54%  | 70.66% | 54.63% | 90.19% |
+
