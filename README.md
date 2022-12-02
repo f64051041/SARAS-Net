@@ -41,7 +41,9 @@ You can find `SARAS-Net/cfgs/config.py` to set the training parameter.
 ```ruby
 python train.py
 ```
-## Calculate accurancy on test dataset
+## Test  
+After training, you can put weight in `SARAS-Net/`.  
+Then, run a cal_acc.py to get started as follows: 
 ```ruby
 python cal_acc.py
 ```
