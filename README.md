@@ -54,7 +54,7 @@ You can set `show_result = True` in `cal_acc.py` to show the result for each pai
 </div>
 
 ## Data structure
-### Data Path
+### Train Data Path
 ```ruby
 train_dataset  
   |- train_dataset 
@@ -66,6 +66,17 @@ train_dataset
 ```
 The format of `train.txt` and `val.txt` please refer to `SARAS-Net/train_dataset/train.txt` and `SARAS-Net/train_dataset/val.txt`   
 
+### Test Data Path
+```ruby
+test_dataset  
+  |- A 
+      |- image1 
+  |- B  
+      |- image2 
+  |- label
+      |- gt 
+```
+
 ### Data Download
 LEVIR-CD: https://justchenhao.github.io/LEVIR/  
 
@@ -74,6 +85,8 @@ WHU-CD: https://study.rsgis.whu.edu.cn/pages/download/building_dataset.html
 DSIFN-CD: https://github.com/GeoZcx/A-deeply-supervised-image-fusion-network-for-change-detection-in-remote-sensing-images/tree/master/dataset
 
 Quick train on LEVIR-CD : https://drive.google.com/file/d/1DAlxuqalNIPopt-WgtDmCYO98_jWM3ER/view?usp=share_link
+
+Quick test on LEVIR-CD : https://drive.google.com/file/d/1Bj5GQ3hZcDVSpFGZKxm7zIuCBP5XEr6x/view?usp=share_link
 
 ## Result
 
