@@ -62,7 +62,7 @@ WHU-CD: https://study.rsgis.whu.edu.cn/pages/download/building_dataset.html
 
 DSIFN-CD: https://github.com/GeoZcx/A-deeply-supervised-image-fusion-network-for-change-detection-in-remote-sensing-images/tree/master/dataset
 
-Quick train on LEVIR-CD : https://drive.google.com/file/d/1WPjtPoyxVaKfQ87j1Ggxl4mjQym2iaYC/view?usp=sharing
+Quick train on LEVIR-CD : https://drive.google.com/file/d/1DAlxuqalNIPopt-WgtDmCYO98_jWM3ER/view?usp=share_link
 
 ## Result
 
