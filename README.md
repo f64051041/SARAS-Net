@@ -50,7 +50,7 @@ python cal_acc.py
 You can set `show_result = True` in `cal_acc.py` to show the result for each pairs.
 
 <div align = center>
-<img src="image/cal_acc_image.png" alt="Cover" width="50%"/> 
+<img src="image/cal_acc_image.png" alt="Cover" width="80%"/> 
 </div>
 
 ## Data structure
