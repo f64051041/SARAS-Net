@@ -41,6 +41,10 @@ You can find `SARAS-Net/cfgs/config.py` to set the training parameter.
 ```ruby
 python train.py
 ```
+## Calculate accurancy on test dataset
+```ruby
+python cal_acc.py
+```
 
 ## Data structure
 ### Data Path
