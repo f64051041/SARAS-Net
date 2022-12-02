@@ -89,8 +89,8 @@ for file in tqdm.tqdm(glob.glob('./test_dataset/A/*')):
             
             output_map = output_map.detach()
             
-    
-            output_map[:,1,:,:] = output_map[:,1,:,:] + 0.95 #.65#.75 #0.75
+            param = 1  # This parameter is balance precision and recall to get higher F1-score
+            output_map[:,1,:,:] = output_map[:,1,:,:] + param 
                         
             
 
