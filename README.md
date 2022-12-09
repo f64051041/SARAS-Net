@@ -1,6 +1,10 @@
 # SARAS-Net
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/saras-net-scale-and-relation-aware-siamese/change-detection-for-remote-sensing-images-on)](https://paperswithcode.com/sota/change-detection-for-remote-sensing-images-on?p=saras-net-scale-and-relation-aware-siamese)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/saras-net-scale-and-relation-aware-siamese/change-detection-on-dsifn-cd)](https://paperswithcode.com/sota/change-detection-on-dsifn-cd?p=saras-net-scale-and-relation-aware-siamese)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/saras-net-scale-and-relation-aware-siamese/building-change-detection-for-remote-sensing)](https://paperswithcode.com/sota/building-change-detection-for-remote-sensing?p=saras-net-scale-and-relation-aware-siamese)
+
 **Scale And Relation Aware Siamese Network for Change Detection**   
+
 **Target:** Change detection aims to find the difference between two images at different times and output a change map.  
 
 For more information, please see our paper at [arxiv](https://arxiv.org/abs/2212.01287).
