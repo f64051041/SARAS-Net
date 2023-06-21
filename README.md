@@ -9,7 +9,7 @@
 
 **Target:** Change detection aims to find the difference between two images at different times and output a change map.  
 
-- ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png)  Our paper has been accepted in AAAI-23. 
+![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png)  'Our paper has been accepted in AAAI-23.' 
 
 
 For more information, please see our paper at [arxiv](https://arxiv.org/abs/2212.01287).
