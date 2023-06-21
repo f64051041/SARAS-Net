@@ -5,12 +5,9 @@
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/saras-net-scale-and-relation-aware-siamese/building-change-detection-for-remote-sensing)](https://paperswithcode.com/sota/building-change-detection-for-remote-sensing?p=saras-net-scale-and-relation-aware-siamese)
 
-![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png)  `This paper has been accepted in AAAI-23.`
-
 **Target:** Change detection aims to find the difference between two images at different times and output a change map.  
 
-
-
+![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png)  `This paper has been accepted in AAAI-23.`
 
 For more information, please see our paper at [arxiv](https://arxiv.org/abs/2212.01287).
 
