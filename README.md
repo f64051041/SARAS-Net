@@ -8,7 +8,9 @@
 
 
 **Target:** Change detection aims to find the difference between two images at different times and output a change map.  
-Our paper was accepted in AAAI-23.
+
+<mark> Our paper has been accepted in AAAI-23. </mark>
+
 
 For more information, please see our paper at [arxiv](https://arxiv.org/abs/2212.01287).
 
