@@ -9,7 +9,7 @@
 
 ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png)  `This paper has been accepted in AAAI-23.`
 
-For more information, please see our paper at [arxiv](https://arxiv.org/abs/2212.01287).
+For more information, please see our paper at [AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/26660) or [arxiv](https://arxiv.org/abs/2212.01287).
 
 **Overview of SARAS-Net:** 
 ![image](https://github.com/f64051041/SARAS-Net/blob/main/image/model.jpg)
